@@ -4,11 +4,14 @@ import { Link } from 'react-router-dom';
 const Nav = () => {
 
   return (
-    <div>
-      <img src="transparent logo.png" className="img-fluid logo" alt="Responsive image" />
-      <button className="btn btn-outline-primary pull-right">Students</button>
-      <button className="btn btn-outline-primary pull-right">Planets</button>
-    </div>
+    <nav>
+      <img src="transparent logo1.jpg" className="img-fluid logo" alt="Responsive image" />
+      <div className='text-to-inlin-block header'><h1>Interplanetary Academy</h1></div>
+      <div className="button-container">
+      <Link to={'/students'}><button className="btn btn-outline-primary pull-right">Students</button></Link>
+      <Link to={'/campuses'}><button className="btn btn-outline-primary pull-right" href="/campuses">Stations</button></Link>
+      </div>
+    </nav>
   );
 
 };

@@ -1,0 +1,115 @@
+html, body {
+    height:100%;
+    color: white;
+} 
+
+nav {
+	height:80px;
+	background: black;
+}
+
+nav {
+	overflow: auto;
+    content: "";
+    clear: both;
+    margin: auto 0;
+}
+
+form input {
+	color: black;
+}
+
+nav button{
+	margin: 10px 10px;
+	float: right;
+
+}
+
+nav img{
+	margin: auto;
+	float:left;
+	height:80%;
+}
+
+nav .button-container {
+	float: right;
+}
+
+td {
+	margin: 5px, 0, 0, 10px;
+}
+
+div.campuses Link {
+	height: 300px;
+}
+
+#main {
+	height: 100%;
+	background-image: url('https://ak6.picdn.net/shutterstock/videos/12914366/thumb/1.jpg');
+	background-size: auto 100%;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+
+div.footer {
+	position: absolute;
+	background-color: black;
+	color: white;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+}
+
+.all-campuses a{
+	height: 300px;
+}
+
+.stick-to-bottom {
+	position: absolute;
+	width: auto;
+	/*bottom: 0;*/
+}
+
+#all-student {
+	overflow: auto;
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.allstudent btn{
+	float: right;
+}
+
+#addstudent {
+	margin-bottom: 3px;
+	margin-top: 3px;
+	clear:right;
+}
+
+div.addstudent {
+	overflow: auto;
+    content: "";
+    clear: both;
+    display: table;
+    min-width: 100%;
+    padding-right: 15px;
+}
+
+#main {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+div.text-to-inline-block{
+	margin: 2px 2px;
+	float: center;
+	width: auto 0;
+	display: inline-block;
+}
+
+div.header{
+	padding-left: 5px;
+	color:white;
+	text-align: center;
+}
