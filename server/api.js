@@ -41,9 +41,13 @@ api.get('/campuses', (req, res, next) => {
 		.catch( next );
 });
 
-api.post('.campuses/add', (req, res, next) => {
-	Campus.create({name: req.params.campusName, imageUrl: req.params.imageUrl})
-		.then( campus => res.json(campus))
+api.post('/campuses/add', (req, res, next) => {
+	console.log('CAMPUS ADD API', req.body);
+	Campus.create({name: req.body.campusInfo.campusName, imageUrl: req.body.campusInfo.imageUrl})
+		.then( campus => {
+			console.log(campus)
+			res.json(campus)
+		})
 		.catch( next );
 });
 

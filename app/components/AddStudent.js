@@ -25,6 +25,7 @@ export default class SingleStudent extends React.Component {
 				campusId: event.target.campus.value
 			})
 		);
+		this.props.history.push('/home');
 	}
 
 	render() {
@@ -37,8 +38,7 @@ export default class SingleStudent extends React.Component {
 					<input name="student" onChange={this.props.handleChange}  />
 					<h4>Campus</h4>
 					<select name="campus">
-						{
-							this.state.campuses.map(
+						{this.state.campuses.map(
 							campus => (<option value={campus.id} key={campus.id}>
 							{campus.name}
 							</option>))}

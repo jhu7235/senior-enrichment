@@ -28,8 +28,10 @@ export default class AllCampus extends React.Component {
 		// console.log(tag, 'RENDERING', campuses);
 		return (
 			<div className="all-campuses">
-				<div className="add-campus">
-					<Link to={'./addcampus'}><button> + </button></Link>
+				<div className="addcampus">
+					<Link to={'./addcampus'}>
+						<button className="btn btn-success pull-right" id="addstudent"> + </button>
+					</Link>
 				</div>
 					{campuses.map( campus => {
 						return (

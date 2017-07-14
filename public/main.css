@@ -19,6 +19,10 @@ form input {
 	color: black;
 }
 
+form select {
+	color: black;
+}
+
 nav button{
 	margin: 10px 10px;
 	float: right;
@@ -88,6 +92,15 @@ div.footer {
 }
 
 div.addstudent {
+	overflow: auto;
+    content: "";
+    clear: both;
+    display: table;
+    min-width: 100%;
+    padding-right: 15px;
+}
+
+div.addcampus {
 	overflow: auto;
     content: "";
     clear: both;

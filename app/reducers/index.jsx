@@ -50,7 +50,7 @@ export default function(state = initialState, action) {
 			return newState;
 
 		case ADD_CAMPUS:
-			newState.campus = [...newState.campus, newState.campus];
+			newState.campus = [...newState.campus, action.campus];
 			return newState;
 
 		case FETCH_CAMPUSES:
@@ -58,7 +58,7 @@ export default function(state = initialState, action) {
 			return newState;
 
 		case DELETE_CAMPUS:
-			newState = newState.campuses.filter( campus => {
+			newState.campuses = newState.campuses.filter( campus => {
 				return campus.id != action.campusId;
 			});
 			return newState;
@@ -136,9 +136,8 @@ export const getCampusStudentsTC = (campusId) => (dispatch) => {
 };
 
 export const addCampusTC = ( campusInfo ) => (dispatch) => {
-	console.log('ADD CAMPUS TC')
+	console.log('ADD CAMPUS TC', campusInfo);
 	axios.post('/api/campuses/add', {campusInfo} )
-		// expect to get campus object back
-		.then( res => store.dispatch());
-		// update store via diapatch
+		.then( res => store.dispatch(addCampus(res.data)))
+		.catch( console.log( 'ADD CAMPUS ERROR'));
 };

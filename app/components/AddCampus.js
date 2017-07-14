@@ -20,6 +20,7 @@ export default class AddCampus extends React.Component {
 		store.dispatch(
 			addCampusTC( {campusName: campusName, imageUrl: imageUrl })
 		);
+		this.props.history.push('/home')
 	}
 
 	render() {

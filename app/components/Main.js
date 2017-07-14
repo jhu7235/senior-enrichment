@@ -37,16 +37,7 @@ export default class Main extends Component {
             <Route exact path="/campuses" component={AllCampus} />
             <Route exact path="/campuses/:campusId" component={SingleCampus} />
             <Route exact path="/students" component={AllStudent} />
-            <Route
-              exact path="/students/:studentId" render={
-                (routerProps) => {
-                  const studentId = routerProps.match.params.studentId;
-                  const singleStudent = store.getState().students.find(
-                    student => {
-                      return student.id == studentId;
-                    });
-                  return <SingleStudent student={singleStudent} />;
-                }} />
+            <Route exact path="/students/:studentId" component={SingleStudent} />
             <Redirect to="/home" />
           </Switch>
           <Footer />
@@ -55,3 +46,13 @@ export default class Main extends Component {
     );
   }
 }
+            // <Route
+            //   exact path="/students/:studentId" render={
+            //     (routerProps) => {
+            //       const studentId = routerProps.match.params.studentId;
+            //       const singleStudent = store.getState().students.find(
+            //         student => {
+            //           return student.id == studentId;
+            //         });
+            //       return <SingleStudent student={singleStudent} />;
+            //     }} />
