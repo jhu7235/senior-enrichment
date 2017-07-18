@@ -12,7 +12,7 @@ export default class SingleStudent extends React.Component{
 	}
 
 	handleUpdate(event) {
-		store.dispatch( updateStudentTC( event.target.campus.value));
+		store.dispatch( updateStudentTC( event.target.campus.value)); //thunk creator not written yet
 	}
 
 	render() {
@@ -28,7 +28,7 @@ export default class SingleStudent extends React.Component{
 					<h2>{ student.name }</h2>
 					<h3>Student Id</h3>
 					<p>{ student.id }</p>
-					<form onSubmit={this.handleUpdate.bind(this)}>
+					<form onSubmit={this.handleUpdate.bind(this)/*Should do binding in your constructor*/}>
 							<h3>Campus Id</h3>
 							<select name="campus">
 							{

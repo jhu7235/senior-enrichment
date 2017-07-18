@@ -4,10 +4,10 @@ import Nav from './Nav';
 import AddCampus from './AddCampus';
 import AllCampus from './AllCampus';
 import SingleCampus from './SingleCampus';
-import AllStudent  from './allStudent';
+import AllStudent  from './AllStudent';
 import SingleStudent from './SingleStudent';
 import AddStudent from './AddStudent';
-import Home from './Home';
+import Home from './home';
 import Footer from './Footer';
 
 import { fetchCampusesTC, fetchStudentsTC } from '../reducers';

@@ -4,11 +4,14 @@ const api = require('express').Router();
 const Campus = require('../db/models').Campus;
 const Student = require('../db/models').Student;
 
-//
+//Should break up students and campus into their own files
+
+
 // student api start
 api.post('/students', (req, res, next) => {
 	const student = Student.build({ name: req.body.student, campusId: req.body.campusId})
-	.save().then( res.send() )
+	//just use create, dont need variable declaration
+	.save().then( res.send() ) //res.send status 204
 	.catch( next );
 });
 
@@ -20,7 +23,7 @@ api.get('/students', (req, res, next) => {
 });
 
 api.get('/students/:studentId', (req, res, next) => {
-	Student.findOne({where: {id: req.params.studentId}})
+	Student.findOne({where: {id: req.params.studentId}}) //can use find by id
 		.then( res.json )
 		.catch( next );
 });
@@ -61,7 +64,7 @@ api.delete('/campuses/:id', (req, res, next) => {
 //get campus students
 api.get('/campuses/:campusId', (req, res, next) => {
 	const campusId = req.params.campusId;
-	const campus = Campus.findById(campusId)
+	const campus = Campus.findById(campusId) //dont need the variable declaration for campus
 		.then( campus => campus.getStudents() )
 		.then( students => {
 			// console.log('CAMPUS STUDENT API', students);

@@ -14,6 +14,7 @@ export default class SingleStudent extends React.Component {
 
 	componentDidMount () {
 		this.unsubscribe = store.subscribe( () => this.setState(store.getState()));
+		//don't forget to unsubscribe when unmounting
 	}
 
 	handleSubmit(event) {

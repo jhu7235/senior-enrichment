@@ -11,11 +11,15 @@ export default class SingleCampus extends React.Component {
 
 	componentDidMount () {
 		// console.log('COMPONENT DID MOUNT, SINGLECAMPUS');
-		this.unsubscribe = store.subscribe(() => this.setState(store.getState()));
+		this.unsubscribe = store.subscribe(() => this.setState(store.getState())); //when using redux you need to call this.unsubscribe when you unmount
 		const campusId = this.props.match.params.campusId;
 		store.dispatch( getCampusStudentsTC(campusId) );
   }
-
+	/* 
+	componentWillUnMount(){
+		this.unsubscribe()
+	}
+	*/
   
 
 	render() {
