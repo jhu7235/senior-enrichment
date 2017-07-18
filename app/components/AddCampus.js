@@ -11,10 +11,16 @@ export default class AddCampus extends React.Component {
 
 	componentDidMount() {
 		this.unsubscribe = store.subscribe( () => this.setState(store.getState()));
+		//Remember this handle's whether this components are listening to actions, which is why we subscribe on the mount
 	}
-
+	//don't forget to unsubscribe when unmounting
+	//react-redux utilizes a higher order component that handles subscription for us
+	/*
+	componentWillUnmount () {
+    this.unsubscribe();
+  } */
 	handleSubmit(event) {
-		this.unsubscribe1 = store.subscribe( () => this.setState(store.getState()));
+		this.unsubscribe1 = store.subscribe( () => this.setState(store.getState())); //Don't need this
 		const campusName = event.target.campusName.value;
 		const imageUrl = event.target.image.value;
 		store.dispatch(

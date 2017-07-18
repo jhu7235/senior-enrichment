@@ -4,6 +4,8 @@ import createLogger from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 import store from '../store';
 
+//Should break this down into other files and then use combine reducers
+
 const initialState = {
 	studentEntry: '',
 	campuses: [],
@@ -25,7 +27,7 @@ const DELETE_STUDENT = 'DELETE_STUDENT';
 
 // ACTION CREATOR
 // const actionName = (payload) => ( {type: *string*, payload});
-const addStudent = (student) => ({ type: ADD_STUDENT, student });
+const addStudent = (student) => ({ type: ADD_STUDENT, student }); //this should be used 
 const addCampus = (campus) => ({ type: ADD_CAMPUS, campus });
 const fetchCampuses = (campuses) => ( {type: FETCH_CAMPUSES, campuses} );
 const deleteCampus = campusId => ( {type: DELETE_CAMPUS, campusId});
@@ -41,8 +43,9 @@ export default function(state = initialState, action) {
 
 		case ADD_STUDENT:
 			// console.log('ADD STUDENT REDUCER');
-			newState.studentEntry = '';
-			newState.students = [newState.students, action.student];
+			newState.studentEntry = ''; //should just dispatch UPDATE_STUDENT_ENTRY because it handles this already
+			newState.students = [newState.students, action.student]; // don't forget to spread
+			//[...newState.students, action.student]
 			return newState;
 
 		case UPDATE_STUDENT_ENTRY:
@@ -83,6 +86,7 @@ export default function(state = initialState, action) {
 			newState.students = newState.students.filter( student => {
 				return student.id != action.studentId;
 			});
+			//wouldn't delete them from selectedStudents until Fetch_Student_For_Campus is dispatched
 			return newState;
 
     default: return newState;
@@ -92,9 +96,13 @@ export default function(state = initialState, action) {
 // THUNK CREATOR
 export const submitAddStudent = ( data ) => (dispatch) => {
 	axios.post('/api/students', data);
+	//should also dispatch addStudent with the newly created student to update the front end like you do for addCampusTC
+	// otherwise we will not see this user
+	//until we refresh the page to load all students. 
 };
 
 export const fetchCampusesTC = () => (dispatch) => {
+	//passing in dispatch is a react-redux pattern
 	axios.get(`/api/campuses`)
 	  .then(res => res.data)
 	  .then(campuses => {
